@@ -392,4 +392,12 @@ input[name="attr_dark_mode"]:checked ~ span{
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
+
+input[name="attr_dark_mode"]:checked ~ div .repcontrol_add, input[name="attr_dark_mode"]:checked ~ div .repcontrol_edit{
+    text-shadow: 0px 0px 0px #333333 !important;
+    background: #666666 !important;
+    color: #000000 !important;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
     
