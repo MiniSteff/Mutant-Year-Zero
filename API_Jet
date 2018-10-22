@@ -107,6 +107,14 @@ if(msg.type == "api" && msg.content.indexOf("!myzJet") !== -1) {
                 
         valeurAttribut -= (reussite_attribut+echec_attribut);
         valeurCompetence -= (reussite_competence+echec_competence);
+       
+       var echecHTML = "";
+        if(echec_attribut === 0) { echecHTM = ""}
+        else                     { echecHTM = "<tr>"+table1_colspan+"Sur un jet poussé, ta "+nomAttribut+" est réduite de "+echec_attribut+"</td></tr>"    }
+        
+        if(echec_equipement === 0)  { equipementHTM = ""}
+        else                        { equipementHTM = "<tr>"+table1_colspan+"Sur un jet poussé, ton bonus d'équipement est réduit de "+echec_equipement+"</td></tr>"    }
+        
         
         // J'envoie le message dans le tchat
         sendChat(msg.who,   "<table style='width: 100%; background: #e9913b;; border: 2px solid #000000'><tr>"
@@ -134,8 +142,9 @@ if(msg.type == "api" && msg.content.indexOf("!myzJet") !== -1) {
                                 +"<tr>"+table1_colspan
                                 +"Ton jet sera de "+jetPousse+"d6 si tu le pousse</td>"
                                 +"</td></tr>"
+                                +echecHTM+equipementHTM
                             +"</tr></table>"
-                            +"<a href='!myzPousse..."+nomJoueur+"..."+nomJet+"..."+nomAttribut+"..."+valeurAttribut+"..."+valeurCompetence+"...?{Équipements ? | 0}' style='background: transparent; border: 0; color: #000000'>Pousser le jet</a>");
+                            +"<a href='!myzPousse..."+nomJoueur+"..."+nomJet+"..."+nomAttribut+"..."+valeurAttribut+"..."+valeurCompetence+"...?{Équipements ? | 0}..."+echec_attribut+"..."+echec_equipement+"' style='background: transparent; border: 0; color: #000000'>Pousser le jet</a>");
 }
 
 
