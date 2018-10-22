@@ -1,19 +1,18 @@
-var table1                  = "<td style='border: 1px solid #000000; padding: 3px; color:#000000'>";
-var table1_colspan          = "<td style='border: 1px solid #000000; padding: 3px; color:#000000' colspan='2'>";
-var table1_colspan_reussite = "<td style='border: 1px solid #000000; padding: 3px; color:#000000; height: 50px; font-size: 50px; font-weight: bold; text-align: center' colspan='2'>";
+var table1                  = "<td style='border: 1px solid #000000; color:#000000; padding: 3px;'>";
+var table1_colspan          = "<td style='border: 1px solid #000000; color:#000000; padding: 3px' colspan='2'>";
+var table1_colspan_reussite = "<td style='border: 1px solid #000000; color:#000000; padding: 3px; height: 50px; font-size: 50px; font-weight: bold; text-align: center' colspan='2'>";
 
 on("chat:message", function(msg) {
-if(msg.type == "api" && msg.content.indexOf("!myzJet") !== -1) {
-        var myzJet              = msg.content.split("...");
-        var nomJoueur           = myzJet[1];
-        var nomJet              = myzJet[2];
-        var nomAttribut         = myzJet[3];
-        var valeurAttribut      = Number(myzJet[4])-Number(myzJet[7]);
-        var valeurCompetence    = myzJet[5];
-        var valeurEquipement    = myzJet[6];
-        
-        
-        
+if(msg.type == "api" && msg.content.indexOf("!myzPousse") !== -1) {
+        var myzJet                      = msg.content.split("...");
+        var nomJoueur                   = myzJet[1];
+        var nomJet                      = myzJet[2];
+        var nomAttribut                 = myzJet[3];
+        var valeurAttribut              = myzJet[4];
+        var valeurCompetence            = myzJet[5];
+        var valeurEquipement            = myzJet[6];
+        var valeurEchec                 = Number(myzJet[7]);
+        var valeurEchecEquipement       = Number(myzJet[8]);
         
         var malusAttribut       = 0;
         // Je détermine la valeur du jet sous la forme Xd6
@@ -103,27 +102,23 @@ if(msg.type == "api" && msg.content.indexOf("!myzJet") !== -1) {
         
         var jetReussi = Number(reussite_attribut)+Number(reussite_competence)+Number(reussite_equipement)
         var jetPousse = (Number(valeurCompetence)+Number(valeurAttribut))-(Number(reussite_attribut)+Number(reussite_competence)+Number(echec_attribut)+Number(echec_competence));
+        echec_attribut += valeurEchec;
+        echec_equipement += valeurEchecEquipement;
         
-                
-        valeurAttribut -= (reussite_attribut+echec_attribut);
-        valeurCompetence -= (reussite_competence+echec_competence);
-       
-       var echecHTML = "";
-        if(echec_attribut === 0) { echecHTM = ""}
-        else                     { echecHTM = "<tr>"+table1_colspan+"Sur un jet poussé, ta "+nomAttribut+" est réduite de "+echec_attribut+"</td></tr>"    }
+        if(echec_attribut === 0) { echecHTML = ""}
+        else                     { echecHTML = "<tr>"+table1_colspan+nomAttribut+" réduite de "+echec_attribut+"</td>"+"</td></tr>"  }
         
-        if(echec_equipement === 0)  { equipementHTM = ""}
-        else                        { equipementHTM = "<tr>"+table1_colspan+"Sur un jet poussé, ton bonus d'équipement est réduit de "+echec_equipement+"</td></tr>"    }
-        
+        if(echec_equipement === 0) { echecEquipementHTML = ""}
+        else                     { echecEquipementHTML = "<tr>"+table1_colspan+"Bonus d'équipement réduit de "+echec_equipement+"</td></tr>"  }
         
         // J'envoie le message dans le tchat
-        sendChat(msg.who,   "<table style='width: 100%; background: #e9913b;; border: 2px solid #000000; color: #000000'><tr>"
+        sendChat(msg.who,   "<table style='width: 100%; background: #e9913b;; border: 2px solid #000000; color:#000000'><tr>"
                                 +"<td class='sheet-red' colspan='2' style='height: 25px; vertical-align: middler; text-align: center; font-weight: bold; color: #ffffff; background: url(https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/header_table_4.png) top left'>"
                                 +"Test de "+nomJet
                                 +"</td></tr>"
                                 +table1_colspan_reussite+jetReussi
                                 +"</td></tr>"
-                                +"<tr>"+table1
+                                +"<tr  style='color:#000000'>"+table1
                                 +"Jet</td>"
                                 +"<td>"+valeurJet
                                 +"</td></tr>"
@@ -135,16 +130,12 @@ if(msg.type == "api" && msg.content.indexOf("!myzJet") !== -1) {
                                 +"Compétence</td>"
                                 +table1+tableauJet_competence
                                 +"</td></tr>"
-                                +"<tr style='color:#000000'>"+table1
+                                +"<tr  style='color:#000000'>"+table1
                                 +"Équipements </td>"
                                 +table1+tableauJet_equipement
                                 +"</td></tr>"
-                                +"<tr>"+table1_colspan
-                                +"Ton jet sera de "+jetPousse+"d6 si tu le pousse</td>"
-                                +"</td></tr>"
-                                +echecHTM+equipementHTM
-                            +"</tr></table>"
-                            +"<a href='!myzPousse..."+nomJoueur+"..."+nomJet+"..."+nomAttribut+"..."+valeurAttribut+"..."+valeurCompetence+"...?{Équipements ? | 0}..."+echec_attribut+"..."+echec_equipement+"' style='background: transparent; border: 0; color: #000000'>Pousser le jet</a>");
+                                +echecHTML+echecEquipementHTML
+                            +"</table>");
 }
 
 
