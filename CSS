@@ -1,7 +1,6 @@
 .charsheet 
 { 
     font-family: 'Times New Roman';
-    background: #000000;
     color: #333333;
     width: 1050px;
     font-size: 15px;
@@ -379,9 +378,17 @@ input[name="attr_dark_mode"]:checked ~ div input[type="number"]{
     filter: grayscale(100%);
 }
 
-input[name="attr_dark_mode"]:checked ~ div select{
+input[name="attr_dark_mode"]:checked ~ div select, 
+input[name="attr_dark_mode"]:checked ~ div input[name="attr_watersource"],
+input[name="attr_dark_mode"]:checked ~ div input[name="attr_season"]{
     background: #666666 !important;
     color: #000000 !important;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+input[name="attr_dark_mode"]:checked ~ span{
+    color: #999999 !important;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
