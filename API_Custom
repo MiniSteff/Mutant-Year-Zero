@@ -150,8 +150,9 @@ if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
                                 +"</td></tr>"
                                 +echecHTM+equipementHTM
                             +"</table>"
-                            +"<a href='!myzPousse..."+nomJoueur+"..."+nomJet+"..."+nomAttribut+"..."+valeurAttribut+"..."+valeurCompetence+"...?{Équipements ? | 0}..."+echec_attribut+echec_equipement+"..."+jetReussi+"' style='background: transparent; border: 0; color: #000000'>Pousser le jet</a>");
+                            +"<a href='!myzPousse..."+nomJoueur+"..."+nomJet+"..."+nomAttribut+"..."+valeurAttribut+"..."+valeurCompetence+"...?{Équipements ? | 0}..."+echec_attribut+"..."+echec_equipement+"..."+jetReussi+"' style='background: transparent; border: 0; color: #000000'>Pousser le jet</a>");
 }
 
 
 });
+
