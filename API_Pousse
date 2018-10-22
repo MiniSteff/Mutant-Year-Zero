@@ -4,14 +4,16 @@ var table1_colspan_reussite = "<td style='border: 1px solid #000000; padding: 3p
 
 on("chat:message", function(msg) {
 if(msg.type == "api" && msg.content.indexOf("!myzPousse") !== -1) {
-        var myzJet              = msg.content.split("...");
-        var nomJoueur           = myzJet[1];
-        var nomJet              = myzJet[2];
-        var nomAttribut         = myzJet[3];
-        var valeurAttribut      = myzJet[4];
-        var valeurCompetence    = myzJet[5];
-        var valeurEquipement    = myzJet[6];
-
+        var myzJet                      = msg.content.split("...");
+        var nomJoueur                   = myzJet[1];
+        var nomJet                      = myzJet[2];
+        var nomAttribut                 = myzJet[3];
+        var valeurAttribut              = myzJet[4];
+        var valeurCompetence            = myzJet[5];
+        var valeurEquipement            = myzJet[6];
+        var valeurEchec                 = Number(myzJet[7]);
+        var valeurEchecEquipement       = Number(myzJet[8]);
+        
         var malusAttribut       = 0;
         // Je détermine la valeur du jet sous la forme Xd6
         var valeurJet = Number(valeurCompetence)+Number(valeurAttribut)+Number(valeurEquipement);
@@ -100,7 +102,14 @@ if(msg.type == "api" && msg.content.indexOf("!myzPousse") !== -1) {
         
         var jetReussi = Number(reussite_attribut)+Number(reussite_competence)+Number(reussite_equipement)
         var jetPousse = (Number(valeurCompetence)+Number(valeurAttribut))-(Number(reussite_attribut)+Number(reussite_competence)+Number(echec_attribut)+Number(echec_competence));
-
+        echec_attribut += valeurEchec;
+        echec_equipement += valeurEchecEquipement;
+        
+        if(echec_attribut === 0) { echecHTML = ""}
+        else                     { echecHTML = "<tr>"+table1_colspan+nomAttribut+" réduite de "+echec_attribut+"</td>"+"</td></tr>"  }
+        
+        if(echec_equipement === 0) { echecEquipementHTML = ""}
+        else                     { echecEquipementHTML = "<tr>"+table1_colspan+"Bonus d'équipement réduit de "+echec_equipement+"</td></tr>"  }
         
         // J'envoie le message dans le tchat
         sendChat(msg.who,   "<table style='width: 100%; background: #e9913b;; border: 2px solid #000000'><tr>"
@@ -125,10 +134,8 @@ if(msg.type == "api" && msg.content.indexOf("!myzPousse") !== -1) {
                                 +"Équipements </td>"
                                 +table1+tableauJet_equipement
                                 +"</td></tr>"
-                                +"<tr>"+table1_colspan
-                                +"Tu perds "+echec_attribut+" point(s) de "+nomAttribut+"</td>"
-                                +"</td></tr>"
-                            +"</tr></table>");
+                                +echecHTML+echecEquipementHTML
+                            +"</table>");
 }
 
 
