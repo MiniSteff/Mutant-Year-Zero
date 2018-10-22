@@ -155,4 +155,3 @@ if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
 
 
 });
-
