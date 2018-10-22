@@ -1,6 +1,7 @@
 .charsheet 
 { 
     font-family: 'Times New Roman';
+    background: #000000;
     color: #333333;
     width: 1050px;
     font-size: 15px;
@@ -358,4 +359,30 @@ input[name="attr_onglet"] + span + span + p{
     height: 15px; 
     margin-right: 10px; 
     border-right: 1px dotted #000000;}
+    
+input[name="attr_dark_mode"]:checked ~ img{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+        
+input[name="attr_dark_mode"]:checked ~ div table{
+    background: #333333 !important;
+    color: #999999 !important;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+input[name="attr_dark_mode"]:checked ~ div input[type="number"]{
+    background: #666666 !important;
+    color: #000000 !important;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+input[name="attr_dark_mode"]:checked ~ div select{
+    background: #666666 !important;
+    color: #000000 !important;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
     
