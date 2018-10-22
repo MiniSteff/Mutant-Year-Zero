@@ -22,6 +22,9 @@
 
 button, p { display: inline-block;}
 textarea, input{ background: transparent;}
+textarea{ background: rgba(255,255,255,0.5); margin: 0 auto;width: 95%; padding: 3px}
+
+
 /* TABLEAU */
 table{
     width: 100%;
@@ -259,6 +262,7 @@ table{
 input[type="radio"]{ position: relative; z-index: 1; width: 13px; margin-right: -12px; vertical-align: middle; opacity: 0;}
 input[type="radio"] ~ span{ opacity: 1; }
 input[type="radio"]:checked + p + p{ opacity: 0.3; }
+input[type="radio"]:checked ~ span{ opacity: 0.3; }
 input[type="radio"]:checked + span{ opacity: 1; }
 input[type="radio"]:hover + span{ color: rgba(255,255,255,0.5); }
 
@@ -322,7 +326,11 @@ input[name="attr_ark-description_check"] ~ span{ display: block;}
 input[name="attr_ark-description_check"]:checked ~ textarea{ display: block;}
 input[name="attr_ark-description_check"]:checked ~ span{ display: none;}
 
-
+input[name="attr_note_check"] { vertical-align: top; margin: 2px;}
+input[name="attr_note_check"] ~ textarea{ display: none;}
+input[name="attr_note_check"] ~ span{ display: block; max-width: 620px;}
+input[name="attr_note_check"]:checked ~ textarea{ display: block;}
+input[name="attr_note_check"]:checked ~ span{ display: none;}
 
 .sheet-table1, .sheet-table2, .sheet-table_arche{ display: none;}
 input[name="attr_onglet"][value="0"]:checked ~ .sheet-table1{display: inline-block;}
@@ -340,4 +348,14 @@ input[name="attr_onglet"][value="1"]:checked ~ .sheet-table_arche{display: block
     transition: 0.1s all ease-in;}
 
 .repcontrol_add:hover, .repcontrol_edit:hover{ opacity: 1;}
+
+input[name="attr_onglet"] + span, input[name="attr_onglet"] + span + span  { opacity: 0.3; vertical-align: top;}
+input[name="attr_onglet"]:checked + span, input[name="attr_onglet"]:checked + span +span { opacity: 1;}
+
+input[name="attr_onglet"] + span + span + p{
+    vertical-align: middle; 
+    width: 10px; 
+    height: 15px; 
+    margin-right: 10px; 
+    border-right: 1px dotted #000000;}
     
