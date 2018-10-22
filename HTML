@@ -1,0 +1,707 @@
+<img src="https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/mutantyearzero-FdP-2.png" class="sheet-logo"><br>
+
+<input type="radio" name="attr_onglet" value="0" checked><span>O</span>
+<input type="radio" name="attr_onglet" value="1"><span>O</span><br>
+
+<div class="sheet-table1">
+    <table class="sheet-table1_1">
+        <tr class="sheet-title">
+            <td colspan="2">Attributs</td>
+        </tr>
+        <tr>
+            <td>
+                <p class="sheet-attribut">Vigueur</p>
+                <input type="number" min="0" name="attr_strength" value="1">
+                <input type="text" min="0" name="attr_vigueur_max" value="[[@{strength}-@{damage}]]" disabled>
+            </td>
+            <td>
+                <p class="sheet-etat">Dégâts</p>
+                <input type="radio" name="attr_damage" value="0" checked><span>X</span>
+                <input type="radio" name="attr_damage" value="1" ><span>█</span>
+                <input type="radio" name="attr_damage" value="2" ><span>█</span>
+                <input type="radio" name="attr_damage" value="3" ><span>█</span>
+                <input type="radio" name="attr_damage" value="4" ><span>█</span>
+                <input type="radio" name="attr_damage" value="5" ><span>█</span>
+                <input type="number" name="attr_damage" class="sheet-number1">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <p class="sheet-attribut">Agilité</p>
+                <input type="number" min="0" name="attr_agility" value="1">
+                <input type="text" min="0" name="attr_agilite_max" value="[[@{agility}-@{fatigue}]]" disabled>
+            </td>
+            <td>
+                <p class="sheet-etat">Épuisement</p>
+                <input type="radio" name="attr_fatigue" value="0"checked><span>X</span>
+                <input type="radio" name="attr_fatigue" value="1"><span>█</span>
+                <input type="radio" name="attr_fatigue" value="2"><span>█</span>
+                <input type="radio" name="attr_fatigue" value="3"><span>█</span>
+                <input type="radio" name="attr_fatigue" value="4"><span>█</span>
+                <input type="radio" name="attr_fatigue" value="5"><span>█</span>
+                <input type="number" name="attr_fatigue" class="sheet-number1">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <p class="sheet-attribut">Intellect</p>
+                <input type="number" min="0" name="attr_wits" value="1">
+                <input type="text" min="0" name="attr_intellect_max" value="[[@{wits}-@{confusion}]]" disabled>
+            </td>
+            <td>
+                <p class="sheet-etat">Confusion</p>
+                <input type="radio" name="attr_confusion" value="0" checked><span>X</span>
+                <input type="radio" name="attr_confusion" value="1"><span>█</span>
+                <input type="radio" name="attr_confusion" value="2"><span>█</span>
+                <input type="radio" name="attr_confusion" value="3"><span>█</span>
+                <input type="radio" name="attr_confusion" value="4"><span>█</span>
+                <input type="radio" name="attr_confusion" value="5"><span>█</span>
+                <input type="number" name="attr_confusion" class="sheet-number1">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <p class="sheet-attribut">Empathie</p>
+                <input type="number" min="0" name="attr_empathy" value="1">
+                <input type="text" min="0" name="attr_empathie_max" value="[[@{empathy}-@{doubt}]]" disabled>
+            </td>
+            <td>
+                <p class="sheet-etat">Doute</p>
+                <input type="radio" name="attr_doubt" value="0" checked><span>X</span>
+                <input type="radio" name="attr_doubt" value="1"><span>█</span>
+                <input type="radio" name="attr_doubt" value="2"><span>█</span>
+                <input type="radio" name="attr_doubt" value="3"><span>█</span>
+                <input type="radio" name="attr_doubt" value="4"><span>█</span>
+                <input type="radio" name="attr_doubt" value="5"><span>█</span>
+                <input type="number" name="attr_doubt" class="sheet-number1">
+            </td>
+        </tr>
+    </table>
+    <br>
+    
+    <table class="sheet-table1_2">
+        <tr class="sheet-title">
+            <td>Compétences</td>
+        </tr>
+        <tr class="sheet-initiative">
+            <td>
+                <button type="roll" value="/r 1d6 &{tracker}" class="sheet-button1"></button><span></span>
+                <p class="sheet-competence">Initiative </p></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Combat...Vigueur...@{strength}...@{fight}...?{Équipements ? | 0}...@{damage}" class="sheet-button1"></button>
+                <p class="sheet-competence">Combat </p><span>Vigueur</span>
+                <input type="number" min="0" value="0" name="attr_fight">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Endurance...Vigueur...@{strength}...@{endure}...?{Équipements ? | 0}...@{damage}" class="sheet-button1"></button>
+                <p class="sheet-competence">Endurance </p><span>Vigueur</span>
+                <input type="number" min="0" value="0" name="attr_endure">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Force...Vigueur...@{strength}...@{force}...?{Équipements ? | 0}...@{damage}" class="sheet-button1"></button>
+                <p class="sheet-competence">Force </p><span>Vigueur</span>
+                <input type="number" min="0" value="0" name="attr_force">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Déplacement...Agilité...@{agility}...@{move}...?{Équipements ? | 0}...@{fatigue}" class="sheet-button1"></button>
+                <p class="sheet-competence">Déplacement </p><span>Agilité</span>
+                <input type="number" min="0" value="0" name="attr_move">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Furtivité...Agilité...@{agility}...@{sneak}...?{Équipements ? | 0}...@{fatigue}" class="sheet-button1"></button>
+                <p class="sheet-competence">Furtivité </p><span>Agilité</span>
+                <input type="number" min="0" value="0" name="attr_sneak">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Tir...Agilité...@{agility}...@{shoot}...?{Équipements ? | 0}...@{fatigue}" class="sheet-button1"></button>
+                <p class="sheet-competence">Tir </p><span>Agilité</span>
+                <input type="number" min="0" value="0" name="attr_shoot">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Compréhension...Intellect...@{wits}...@{comprehend}...?{Équipements ? | 0}...@{confusion}" class="sheet-button1"></button>
+                <p class="sheet-competence">Compréhension </p><span>Intellect</span>
+                <input type="number" min="0" value="0" name="attr_comprehend">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Connaissance de la zone...Intellect...@{wits}...@{knowthezone}...?{Équipements ? | 0}...@{confusion}" class="sheet-button1"></button>
+                <p class="sheet-competence">Connaissance de la zone </p><span>Intellect</span>
+                <input type="number" min="0" value="0" name="attr_knowthezone">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Observation...Intellect...@{wits}...@{scout}...?{Équipements ? | 0}...@{confusion}" class="sheet-button1"></button>
+                <p class="sheet-competence">Observation </p><span>Intellect</span>
+                <input type="number" min="0" value="0" name="attr_scout">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Manipulation...Empathie...@{empathy}...@{manipulate}...?{Équipements ? | 0}...@{doubt}" class="sheet-button1"></button>
+                <p class="sheet-competence">Manipulation </p><span>Empathie</span>
+                <input type="number" min="0" value="0" name="attr_manipulate">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Psychologie...Empathie...@{empathy}...@{sensemotion}...?{Équipements ? | 0}...@{doubt}" class="sheet-button1"></button>
+                <p class="sheet-competence">Psychologie </p><span>Empathie</span>
+                <input type="number" min="0" value="0" name="attr_senseemotion">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="roll" value="!myzJet...@{name}...Soin...Empathie...@{empathy}...@{heal}...?{Équipements ? | 0}...@{doubt}" class="sheet-button1"></button>
+                <p class="sheet-competence">Soins </p><span>Empathie</span>
+                <input type="number" min="0" value="0" name="attr_heal">
+            </td>
+        </tr>
+    </table>
+    <fieldset class="repeating_competence">
+        <table class="sheet-table1_3">           
+            <tr>
+                <td>
+                    <button type="roll" value="!myzCustom...@{name}...@{competence_custom}...@{attribut_custom}...@{attribut_custom}...@{competence_custom_point}...?{Équipements ? | 0}...@{strength}...@{agility}...@{wits}...@{empathy}...@{damage}...@{fatigue}...@{confusion}...@{doubt}" class="sheet-button1"></button>
+                    <input type="text" class="sheet-competence" name="attr_competence_custom" placeholder="........................"><!--
+                    --><select name="attr_attribut_custom">
+                        <option value="7">Vigueur</option>
+                        <option value="8">Agilité</option>
+                        <option value="9">Intellect</option>
+                        <option value="10">Empathie</option>
+                    </select>
+                    <input type="number" min="0" value="0" name="attr_competence_custom_point">
+                </td>
+            </tr>
+        </table> 
+    </fieldset><br>
+    
+    
+    <table class="sheet-table1_4">
+        <tr class="sheet-title">
+            <td colspan="2">Conditions</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="attr_affamee"><p class="sheet-condition">Affamé</p>
+            </td>
+            <td>
+                <input type="checkbox" name="attr_deshydrate"><p class="sheet-condition">Déshydraté</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="attr_epuise"><p class="sheet-condition">Épuisé</p>
+            </td>
+            <td>
+                <input type="checkbox" name="attr_hypothermie"><p class="sheet-condition">En hypothermie</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="checkbox" name="attr_blessureGrave_check">
+                <p>Blessure grave</p>
+                <textarea name="attr_blessureGrave"></textarea>
+                <span name="attr_blessureGrave"></span>
+                <br>
+            </td>
+        </tr>
+    </table>
+    <br>
+    
+    <table>
+        <tr class="sheet-title"><td>Points de souillure</td></tr>
+        <tr><td>
+            <input type="radio" name="attr_rot" value="0" checked><span>X</span>
+            <input type="radio" name="attr_rot" value="1"><span>█</span>
+            <input type="radio" name="attr_rot" value="2"><span>█</span>
+            <input type="radio" name="attr_rot" value="3"><span>█</span>
+            <input type="radio" name="attr_rot" value="4"><span>█</span>
+            <input type="radio" name="attr_rot" value="5"><span>█</span>
+            <input type="radio" name="attr_rot" value="6"><span>█</span>
+            <input type="radio" name="attr_rot" value="7"><span>█</span>
+            <input type="radio" name="attr_rot" value="8"><span>█</span>
+            <input type="radio" name="attr_rot" value="9"><span>█</span>
+            <input type="radio" name="attr_rot" value="10"><span>█</span>
+            <input type="number" name="attr_rot" class="sheet-number1" value="0">
+        </td></tr>
+        <tr><td>
+            Souillure permanente
+            <input type="number" name="attr_permanent-rot" class="sheet-number1" value="0">
+        </td></tr>
+    </table>
+    <br>
+    
+    <table>
+        <tr class="sheet-title"><td>Points d'expérience</td></tr>
+        <tr><td>
+            <input type="radio" name="attr_exp" value="0" checked><span>X</span>
+            <input type="radio" name="attr_exp" value="1"><span>█</span>
+            <input type="radio" name="attr_exp" value="2"><span>█</span>
+            <input type="radio" name="attr_exp" value="3"><span>█</span>
+            <input type="radio" name="attr_exp" value="4"><span>█</span>
+            <input type="radio" name="attr_exp" value="5"><span>█</span>
+            <input type="radio" name="attr_exp" value="6"><span>█</span>
+            <input type="radio" name="attr_exp" value="7"><span>█</span>
+            <input type="radio" name="attr_exp" value="8"><span>█</span>
+            <input type="radio" name="attr_exp" value="9"><span>█</span>
+            <input type="radio" name="attr_exp" value="10"><span>█</span>
+            <input type="number" name="attr_exp" class="sheet-number1" value="0">
+        </td></tr>
+    </table>
+</div>
+<div class="sheet-table2">
+    <table class="sheet-table2_0">
+        <tr>
+            <td>
+                <p class="sheet-information">Nom :</p>
+                <input type="text" name="attr_character_name" placeholder="...............">
+            </td>
+            <td>
+                <p class="sheet-information">Rôle :</p>
+                <input type="text" name="attr_character-role" placeholder="...............">
+            </td>
+        </tr>
+    </table>
+    <br>
+    
+    <div class="sheet-table2_1">
+        <table class="sheet-table2_1_1">
+            <tr class="sheet-title"><td>Apparence</td></tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="attr_face_check">
+                    <p>Visage</p>
+                    <textarea name="attr_face"></textarea>
+                    <span name="attr_face"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="attr_body_check">
+                    <p>Corps</p>
+                    <textarea name="attr_body"></textarea>
+                    <span name="attr_body"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="attr_clothing_check">
+                    <p>Vêtements</p>
+                    <textarea name="attr_clothing"></textarea>
+                    <span name="attr_clothing"></span>
+                </td>
+            </tr>
+        </table>
+       <br>
+         
+        <table class="sheet-table2_1_2">
+            <tr class="sheet-title">
+                <td colspan="3">Équipements</td>
+            </tr>
+            <tr>
+                <td>Propre</td>
+                <td>Infectée</td>
+            </tr>
+            <tr>
+                <td><input type="number" name="attr_grub" value="0"></td>
+                <td><input type="number" name="attr_grub2" value="0"></td>
+                <td>Bouffes</td>
+            </tr>
+            <tr>
+                <td><input type="number" name="attr_water" value="0"></td>
+                <td><input type="number" name="attr_water2" value="0"></td>
+                <td>Eau</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="number" name="attr_bullets" value="0"></td>
+                <td>Balles</td>
+            </tr>
+        </table>
+        
+        <br>
+    </div>
+    
+    <div class="sheet-table2_2">
+        <table>
+                <tr class="sheet-title"><td>Talents</td></tr>
+                <tr>
+                    <td>
+                        <input type="text" name="attr_talent-1" placeholder="...............">
+                        <input type="checkbox" name="attr_talent_check"><br>
+                        <textarea name="attr_talentdescription-1"></textarea>
+                    </td>
+                </tr>
+        </table>
+        <fieldset class="repeating_talent">
+            <table class="sheet-table_mutation">           
+                <tr>
+                    <td>
+                        <input type="text" name="attr_talent-1" placeholder="...............">
+                        <input type="checkbox" name="attr_talent_check"><br>
+                        <textarea name="attr_talentdescription-1"></textarea>
+                    </td>
+                </tr>
+            </table> 
+        </fieldset>
+        
+         <br>
+         
+        <table>
+            <tr class="sheet-title"><td>Points de Mutation</td></tr>
+            <tr><td>
+                <input type="radio" name="attr_mutation" value="0" checked><span>X</span>
+                <input type="radio" name="attr_mutation" value="1"><span>█</span>
+                <input type="radio" name="attr_mutation" value="2"><span>█</span>
+                <input type="radio" name="attr_mutation" value="3"><span>█</span>
+                <input type="radio" name="attr_mutation" value="4"><span>█</span>
+                <input type="radio" name="attr_mutation" value="5"><span>█</span>
+                <input type="radio" name="attr_mutation" value="6"><span>█</span>
+                <input type="radio" name="attr_mutation" value="7"><span>█</span>
+                <input type="radio" name="attr_mutation" value="8"><span>█</span>
+                <input type="radio" name="attr_mutation" value="9"><span>█</span>
+                <input type="radio" name="attr_mutation" value="10"><span>█</span>
+                <input type="number" name="attr_mutation" class="sheet-number1" value="0">
+            </td></tr>
+        </table>
+        
+        <br>
+        
+        <table>
+            <tr class="sheet-title"><td>Mutations</td></tr>
+            <tr>
+                    <td>
+                        <input type="text" name="attr_mutation-1" placeholder="...............">
+                        <input type="checkbox" name="attr_mutation_check"><br>
+                        <textarea name="attr_mutationdescription-1"></textarea>
+                    </td>
+                </tr>
+        </table>
+        <fieldset class="repeating_mutation">
+            <table class="sheet-table_mutation">           
+                <tr>
+                    <td>
+                        <input type="text" name="attr_mutation" placeholder="...............">
+                        <input type="checkbox" name="attr_mutation_check"><br>
+                        <textarea name="attr_mutation_description"></textarea>
+                    </td>
+                </tr>
+            </table> 
+        </fieldset>
+        
+        <br>
+        
+        <table class="sheet-table_armor1">
+            <tr class="sheet-title">
+                <td>Armure</td>
+                <td>Niveau</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="attr_armor" placeholder="....."></td>
+                <td><input type="number" min="0" name="attr_armor-rating" value="0"></td>
+            </tr>
+        </table>
+        <fieldset class="repeating_armor">
+            <table class="sheet-table_armor">
+                <tr>
+                    <td><input type="text" name="attr_armor_custom" placeholder="....."></td>
+                    <td><input type="number" min="0" name="attr_armor-rating_custom" value="0"></td>
+                </tr>
+            </table> 
+        </fieldset>
+        <br>
+    </div>
+    
+    <table class="sheet-table3_1">
+        <tr>
+            <td class="sheet-title">
+                <p>Équipements</p>
+                <p>Encombrement</p>
+                <p>Rang</p>
+                <p>Équipé</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" name="attr_gear-amount" value="0">
+                <input type="text" name="attr_gear-name">
+                <input type="checkbox" name="attr_gear_check">
+                <select name="attr_gear-encumberance">
+                    <option value="">0 - Petit</option>
+                    <option value="">1/2 - Léger</option>
+                    <option value="">1 - Basique</option>
+                    <option value="">2 - Lourd</option>
+                    <option value="">3 - Très Lourd</option>
+                </select>
+                <input type="number" name="attr_gear-rank" value="0">
+                <input type="number" name="attr_gearmaxrank-1" value="0">
+                <input type="checkbox" name="attr_gear-carried">
+                <textarea name="attr_gear-description"></textarea>
+            </td>
+        </tr>
+    </table>
+    <fieldset class="repeating_gear">
+        <table class="sheet-table3_1 sheet-table3_2">
+            <tr>
+                <td>
+                    <input type="number" name="attr_gear-amount" value="0">
+                    <input type="text" name="attr_gear-name">
+                    <input type="checkbox" name="attr_gear_check">
+                    <select name="attr_gear-encumberance">
+                        <option value="">0 - Petit</option>
+                        <option value="">1/2 - Léger</option>
+                        <option value="">1 - Basique</option>
+                        <option value="">2 - Lourd</option>
+                        <option value="">3 - Très Lourd</option>
+                    </select>
+                    <input type="number" name="attr_gear-rank" value="0">
+                    <input type="number" name="attr_gearmaxrank-1" value="0">
+                    <input type="checkbox" name="attr_gear-carried">
+                    <textarea name="attr_gear-description"></textarea>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    
+    <br>
+    
+    <table class="sheet-table3_1 sheet-table3_3">
+        <tr>
+            <td class="sheet-title">
+                <p>Armes</p>
+                <p>Portée</p>
+                <p>Bonus</p>
+                <p>Dégâts</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="attr_weapon">
+                <input type="checkbox" name="attr_weapon_check">
+                <select name="attr_attr_weapon-range-1">
+                    <option value="1">Corps à corps</option>
+                    <option value="2">Proche</option>
+                    <option value="3">Court</option>
+                    <option value="4">Long</option>
+                    <option value="5">A distance</option>
+                </select>
+                <input type="number" name="attr_weapon-bonus" value="0">
+                <input type="number" name="attr_weapon-damage" value="0">
+                <textarea name="attr_gear-description"></textarea>
+            </td>
+        </tr>
+    </table>
+    <fieldset class="repeating_gear">
+        <table class="sheet-table3_1 sheet-table3_3">
+            <tr>
+            <td>
+                <input type="text" name="attr_weapon">
+                <input type="checkbox" name="attr_weapon_check">
+                <select name="attr_attr_weapon-range-1">
+                    <option value="1">Corps à corps</option>
+                    <option value="2">Proche</option>
+                    <option value="3">Court</option>
+                    <option value="4">Long</option>
+                    <option value="5">A distance</option>
+                </select>
+                <input type="number" name="attr_weapon-bonus" value="0">
+                <input type="number" name="attr_weapon-damage" value="0">
+                <textarea name="attr_gear-description"></textarea>
+            </td>
+        </tr>
+        </table>
+    </fieldset>
+    
+    
+    <br>
+
+    <table class="sheet-table3_1 sheet-table3_4">
+        <tr>
+            <td class="sheet-title">
+                <p>Relation</p>
+                <p>Pote ?</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="attr_pcrelationark-1">
+                <input type="checkbox" name="attr_buddy-1">
+            </td>
+        </tr>
+    </table>
+    <fieldset class="repeating_gear">
+        <table class="sheet-table3_1 sheet-table3_4 sheet-table3_5">
+            <tr>
+            <td>
+                <input type="text" name="attr_pcrelationark-1">
+                <input type="checkbox" name="attr_buddy-1">
+            </td>
+        </tr>
+        </table>
+    </fieldset>
+    <table class="sheet-table2_1_1 sheet-table3_6">
+            <tr>
+                <td>
+                    <input type="checkbox" name="attr_hate_check">
+                    <p>Je hais :</p>
+                    <textarea name="attr_hate"></textarea>
+                    <span name="attr_hate"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="attr_protect_check">
+                    <p>Je dois protéger :</p>
+                    <textarea name="attr_protect"></textarea>
+                    <span name="attr_protect"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="attr_dream_check">
+                    <p>Mon Grand Rêve :</p>
+                    <textarea name="attr_dream"></textarea>
+                    <span name="attr_dream"></span>
+                </td>
+            </tr>
+        </table>
+       <br>
+    </div>
+
+<div class="sheet-table_arche">
+    <div class="sheet-table_arche1">
+        <table class="sheet-beige">
+            <tr class="sheet-enTete1 sheet-titre"><td colspan="2">L'Arche</td></tr>
+            <tr>
+                <td><p>Type :</p><input type="text" name="attr_arktype"></td>
+                <td><p>Position :</p><input type="text" name="attr_arkcoordinates"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" name="attr_ark-description_check"><p>Description</p>
+                    <textarea name="attr_ark-description"></textarea>
+                    <span name="attr_ark-description"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="sheet-table_arche2">
+        <table class="sheet-orange">
+            <tr class="sheet-enTete2 sheet-titre"><td>Niveaux de développement</td></tr>
+            <tr>
+                <td>
+                    <p>Nourriture</p>
+                    <input type="number" name="attr_foodsupply">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Culture</p>
+                    <input type="number" name="attr_culture">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Technologie</p>
+                    <input type="number" name="attr_technology">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Défense</p>
+                    <input type="number" name="attr_warfare">
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <br><br>
+    
+    <table class="sheet-beige sheet-projet1">
+        <tr class="sheet-enTete1 sheet-titre">
+            <td>Projets</td>
+            <td>Commentaires</td>
+            <td>Compétences</td>
+            <td>Pts de Travail</td>
+            <td>Achevé</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="attr_projectname" placeholder="..........."></td>
+            <td><input type="text" name="attr_projectcomment" placeholder="..........."></td>
+            <td><input type="text" name="attr_projectskills" placeholder="..........."></td>
+            <td><input type="number" name="attr_projectworkpoints" class="sheet-number1" value="0"> <input type="number" name="attr_projectworkpoints_max" class="sheet-number1" value="0"></td>
+            <td class="sheet-orange"><input type="checkbox" name="attr_projectcomplete"></td>
+        </tr>
+    </table>
+    <fieldset class="repeating_project">
+        <table class="sheet-beige sheet-projet1 sheet-repeat">
+            <tr>
+                <td><input type="text" name="attr_projectname" placeholder="..........."></td>
+                <td><input type="text" name="attr_projectcomment" placeholder="..........."></td>
+                <td><input type="text" name="attr_projectskills" placeholder="..........."></td>
+                <td><input type="number" name="attr_projectworkpoints" class="sheet-number1" value="0"> <input type="number" name="attr_projectworkpoints_max" class="sheet-number1" value="0"></td>
+                <td class="sheet-orange"><input type="checkbox" name="attr_projectcomplete"></td>
+            </tr>
+        </table>
+    </fieldset>
+    
+    <br>
+    
+    <div class="sheet-table_arche1">
+        <table class="sheet-beige">
+            <tr class="sheet-enTete1 sheet-titre">
+                <td>Caïds</td>
+                <td>Type</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="attr_boss-name-1" placeholder="......">
+                </td>
+                <td>
+                    <input type="text" name="attr_boss-type-1" placeholder="......">
+                </td>
+            </tr>
+        </table>
+        
+        <fieldset class="repeating_caids">
+            <table class="sheet-beige sheet-repeat">
+                <tr>
+                    <td>
+                        <input type="text" name="attr_boss-name" placeholder="......">
+                    </td>
+                    <td>
+                        <input type="text" name="attr_boss-type" placeholder="......">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+    
+    <div class="sheet-table_arche2">
+        <table class="sheet-orange">
+            <tr class="sheet-enTete1 sheet-titre"><td>Autres Informations</td></tr>
+            <tr><td><p>Population</p> <input type="number" name="attr_population"></td></tr>
+            <tr><td><p class="sheet-p1">Source d'eau</p> <input type="text" name="attr_watersource"></td></tr>
+            <tr><td><p class="sheet-p1">Saison</p> <input type="text" name="attr_season"></td></tr>
+        </table>
+    </div>
+   
