@@ -1,0 +1,343 @@
+.charsheet 
+{ 
+    font-family: 'Times New Roman';
+    color: #333333;
+    width: 1050px;
+    font-size: 15px;
+    box-sizing: border-box;}
+
+.charsheet *, .charsheet *:before, .charsheet *:after {
+    box-sizing: inherit;
+}
+
+/* Redéfinie des trucs à zéro, retirer les puces des listes et la décoraction des liens */
+.charsheet h1, .charsheet h2, .charsheet h3, .charsheet h4, .charsheeth5, 
+.charsheet h6, .charsheet a, .charsheet p, .charsheet span, .charsheet div,
+.charsheet figure, .charsheet img, .charsheet ul, .charsheet li, .charsheet select, .charsheet option 
+.charsheet body, .charsheet fieldset, .charsheet input, .charsheet label, .charsheet textarea 
+{
+	margin: 0; padding: 0; border: 0;
+	box-shadow: 0 0 0 #000000; border-radius: 0;
+}
+
+button, p { display: inline-block;}
+textarea, input{ background: transparent;}
+/* TABLEAU */
+table{
+    width: 100%;
+    background: #e9913b;
+    border: 2px solid #000000;}
+
+.sheet-logo{
+    display: block;
+    margin: 0 auto;
+}
+.sheet-title{
+    height: 15px;
+    vertical-align: middle;
+    color: #ffffff;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-family: "Helvetica";
+    background: url('https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/header_table_4.png');
+}
+
+.sheet-title td{ padding: 5px;}
+
+
+/* ATTRIBUTS*/
+.sheet-attribut { width: 50px; font-size: 12px; vertical-align: middle; line-height: 20px;}
+.sheet-etat     { width: 65px; font-size: 12px; font-style: italic; }
+
+.sheet-table1_1 td:nth-child(1){ width: 39%;}
+.sheet-table1_1 td:nth-child(3){ width: 61%;}
+
+.sheet-table1_1 input[type="number"], .sheet-table1_2 input[type="number"], .sheet-table_armor1 input[type="number"], .sheet-table_armor input[type="number"]{
+    border: 1px solid #000000;
+    background: rgba(255,255,255,1);
+    text-align: center;
+    width: 35px; 
+    height: 25px;
+    margin: 2px;
+    font-size: 15px;}
+
+.sheet-table_armor td:nth-child(2){
+    width: 76.5px;
+}
+
+.sheet-table1_1 input[type="text"]{
+    border: 1px solid #000000;
+    background: rgba(255,255,255,1);
+    text-align: center;
+    width: 25px; 
+    height: 25px; 
+    font-size: 15px;}
+    
+.sheet-table1_1 td:nth-child(1) input + input{
+    background: #dddddd;
+    font-weight: bold;}
+
+.sheet-table1_1 td{
+    vertical-align: middle;
+    padding: 5px;
+    border: 1px solid #000000;}
+
+.sheet-table1_3 { background: #ebd1b5; border-top: 0; border-bottom: 2px solid #000000;}
+
+.sheet-table1_3 button { vertical-align: middle;}
+
+.sheet-table1_2 td, .sheet-table1_3 td { padding: 1px;}
+
+.sheet-table1_3 select{ 
+    width: 80px; 
+    background: #ffffff; 
+    border: 1px solid #000000;
+    font-size: 14px;
+    height: 30px; 
+    font-style: italic;
+    vertical-align: middle;}
+
+.sheet-table1_3 input[name="attr_competence_custom_point"]{
+    border: 1px solid #000000;
+    background: rgba(255,255,255,1);
+    text-align: center;
+    width: 35px; 
+    height: 25px; 
+    font-size: 15px;}
+
+.sheet-table1_4 input[type="checkbox"]{ margin-right: 5px; vertical-align: middle;}
+
+/* COMPENTENCES */
+.sheet-competence{ width: 160px;}
+
+.sheet-competence + span, input[name="attr_competence_custom_attribut"] { 
+    display: inline-block;
+    width: 80px;
+    font-style: italic;}
+
+.sheet-table1, .sheet-table2{
+    display: inline-block;
+    vertical-align: top;
+    width : 350px;
+}
+
+.sheet-table2{
+    width : 630px;
+}
+
+.sheet-table2 table{
+    background: #ebd1b5;
+}
+
+.sheet-table2_0 input   {font-size: 15px; vertical-align: top; font-style: italic; margin-top: 1px;}
+
+.sheet-table2_1{ 
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;}
+
+.sheet-table2_1_1, .sheet-table2_1_2{
+    background: #ebd1b5;
+}
+
+.sheet-table2_1_2_1, .sheet-table_talent, .sheet-table_mutation { background: #ebd1b5; border-top: 0; border-bottom: 2px solid #000000; vertical-align: top;}
+
+
+.sheet-table2_1_2_1 td {vertical-align: top;}
+
+.sheet-table2_1 td input[type="number"], .sheet-table3_1 td input[type="number"]{
+    border: 1px solid #000000;
+    background: rgba(255,255,255,1);
+    text-align: center;
+    margin: 2px;
+    width: 35px; 
+    height: 25px; 
+    font-size: 15px;}
+    
+.sheet-table2_2{ 
+    display: inline-block;
+    vertical-align: top;
+    width: 320px;}
+
+.sheet-table_armor { background: #ebd1b5; border-top: 0; border-bottom: 2px solid #000000; vertical-align: top;}
+
+.sheet-table3_1 tr:nth-child(1) td p{
+    padding: 8px 0;
+    vertical-align: middle;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: "Helvetica";}
+
+.sheet-table3_1 td input{ font-size: 15px;}
+.sheet-table3_1 td input[type="text"]{ width: 260px;}
+.sheet-table3_1 td input[name="attr_gear-carried"]{ margin-left: 20px;}
+
+.sheet-table3_1 td select{ width: 150px; margin: 1px; font-size: 15px; border: 1px solid #000000;}
+
+.sheet-table3_1 p:nth-child(1){ width: 320px;}
+.sheet-table3_1 p:nth-child(2){ width: 160px;}
+.sheet-table3_1 p:nth-child(3){ width: 70px;}
+
+.sheet-table3_2, .sheet-table3_3, .sheet-table3_5{ background: #ebd1b5; border-top: 0; border-bottom: 2px solid #000000; vertical-align: top;}
+
+.sheet-table3_3 td input[type="text"]               { width: 300px !important;}
+.sheet-table3_3 input[name="attr_weapon-bonus"]      { margin-left: 20px !important; margin-right: 35px !important;}
+
+.sheet-table3_4 p:nth-child(1){ width: 550px;}
+.sheet-table3_4 p:nth-child(2){ width: 60px;}
+.sheet-table3_4 input[type="text"]{ width: 570px !important;}
+
+.sheet-number1{
+    border: 1px solid #000000;
+    background: rgba(255,255,255,1);
+    text-align: center;
+    margin: 2px !important;
+    width: 35px !important; 
+    height: 25px !important; 
+    font-size: 15px !important;}
+
+
+/* ARCHE */
+.sheet-table_arche table    { border: 3px solid #000000;}
+.sheet-table_arche td       { border: 1px solid #000000;}
+
+.sheet-beige{ background: #ebd1b5;}
+.sheet-orange{ background: #e9913b;}
+
+.sheet-titre{ 
+    color: #ffffff; 
+    font-family: "Helvetica"; 
+    font-size: 15px; 
+    vertical-align: middle; 
+    height: 30px; 
+    text-indent: 10px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+
+.sheet-table_arche1, .sheet-table_arche2{ display: inline-block; vertical-align: top;}
+.sheet-table_arche1{ width: 650px;}
+.sheet-table_arche2{ width: 350px;}
+
+.sheet-table_arche2 td > p{ width: 280px;}
+.sheet-table_arche2 .sheet-p1{ width: 100px;}
+.sheet-table_arche2 td input[type="number"]{ 
+    border: 1px solid #000000;
+    background: rgba(255,255,255,1);
+    text-align: center;
+    margin: 2px;
+    width: 45px; 
+    height: 25px; 
+    font-size: 15px;}
+
+.sheet-table_arche2 td input[type="text"]{ 
+    border: 1px solid #000000;
+    background: rgba(255,255,255,1);
+    text-align: center;
+    margin: 2px;
+    width: 225px; 
+    height: 25px; 
+    font-size: 15px;}
+    
+
+.sheet-projet1, .sheet-projet2{ width: 1000px;}
+
+.sheet-projet1 td:nth-child(1), .sheet-projet2 td:nth-child(1), 
+.sheet-projet1 td:nth-child(2), .sheet-projet2 td:nth-child(2),
+.sheet-projet1 td:nth-child(3), .sheet-projet2 td:nth-child(3){ width: 240px;}
+.sheet-projet1 td:nth-child(4), .sheet-projet2 td:nth-child(4){ width: 140px; text-align: center}
+.sheet-projet1 td:nth-child(5), .sheet-projet2 td:nth-child(5){ width: 90px; text-align: center}
+
+.sheet-enTete1{ background: url('https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/header_table_8.png');}
+.sheet-enTete2{ background: url('https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/header_table_4.png');}
+
+.sheet-repeat{ border-top: 0; border-bottom: 1px solid;}
+
+
+/* BOUTON INPUT RADIO*/
+input[type="radio"]{ position: relative; z-index: 1; width: 13px; margin-right: -12px; vertical-align: middle; opacity: 0;}
+input[type="radio"] ~ span{ opacity: 1; }
+input[type="radio"]:checked + p + p{ opacity: 0.3; }
+input[type="radio"]:checked + span{ opacity: 1; }
+input[type="radio"]:hover + span{ color: rgba(255,255,255,0.5); }
+
+input[type="radio"]:nth-child(2) + span{ opacity: 0.3; font-family: "Arial";}
+input[type="radio"]:nth-child(2):hover + span{ opacity: 1; color: #000000;}
+
+/* BOUTON DESCRIPTION*/
+input[name="attr_face_check"] ~ textarea{ display: none;}
+input[name="attr_face_check"] ~ span{ display: block; }
+input[name="attr_face_check"]:checked ~ textarea{ display: block;}
+input[name="attr_face_check"]:checked ~ span{ display: none;}
+
+input[name="attr_body_check"] ~ textarea{ display: none;}
+input[name="attr_body_check"] ~ span{ display: block;}
+input[name="attr_body_check"]:checked ~ textarea{ display: block;}
+input[name="attr_body_check"]:checked ~ span{ display: none;}
+
+input[name="attr_clothing_check"] ~ textarea{ display: none;}
+input[name="attr_clothing_check"] ~ span{ display: block;}
+input[name="attr_clothing_check"]:checked ~ textarea{ display: block;}
+input[name="attr_clothing_check"]:checked ~ span{ display: none;}
+
+input[name="attr_hate_check"] ~ textarea{ display: none;}
+input[name="attr_hate_check"] ~ span{ display: block;}
+input[name="attr_hate_check"]:checked ~ textarea{ display: block;}
+input[name="attr_hate_check"]:checked ~ span{ display: none;}
+
+input[name="attr_protect_check"] ~ textarea{ display: none;}
+input[name="attr_protect_check"] ~ span{ display: block;}
+input[name="attr_protect_check"]:checked ~ textarea{ display: block;}
+input[name="attr_protect_check"]:checked ~ span{ display: none;}
+
+input[name="attr_dream_check"] ~ textarea{ display: none;}
+input[name="attr_dream_check"] ~ span{ display: block;}
+input[name="attr_dream_check"]:checked ~ textarea{ display: block;}
+input[name="attr_dream_check"]:checked ~ span{ display: none;}
+
+input[name="attr_blessureGrave_check"] ~ textarea{ display: none;}
+input[name="attr_blessureGrave_check"] ~ span{ display: block;}
+input[name="attr_blessureGrave_check"]:checked ~ textarea{ display: block;}
+input[name="attr_blessureGrave_check"]:checked ~ span{ display: none;}
+
+input[name="attr_gear_check"] ~ textarea{ display: none;}
+input[name="attr_gear_check"]:checked ~ textarea{ display: block;}
+
+input[name="attr_weapon_check"] ~ textarea{ display: none;}
+input[name="attr_weapon_check"]:checked ~ textarea{ display: block;}
+
+input[name="attr_talent_check"] ~ textarea{ display: none;}
+input[name="attr_talent_check"] ~ span{ display: block;}
+input[name="attr_talent_check"]:checked ~ textarea{ display: block;}
+input[name="attr_talent_check"]:checked ~ span{ display: none;}
+
+input[name="attr_mutation_check"] ~ textarea{ display: none;}
+input[name="attr_mutation_check"] ~ span{ display: block;}
+input[name="attr_mutation_check"]:checked ~ textarea{ display: block;}
+input[name="attr_mutation_check"]:checked ~ span{ display: none;}
+
+input[name="attr_ark-description_check"] ~ textarea{ display: none;}
+input[name="attr_ark-description_check"] ~ span{ display: block;}
+input[name="attr_ark-description_check"]:checked ~ textarea{ display: block;}
+input[name="attr_ark-description_check"]:checked ~ span{ display: none;}
+
+
+
+.sheet-table1, .sheet-table2, .sheet-table_arche{ display: none;}
+input[name="attr_onglet"][value="0"]:checked ~ .sheet-table1{display: inline-block;}
+input[name="attr_onglet"][value="0"]:checked ~ .sheet-table2{display: inline-block;}
+input[name="attr_onglet"][value="1"]:checked ~ .sheet-table_arche{display: block;}
+
+.repcontrol{ width: 97%;}
+.repcontrol_add, .repcontrol_edit{
+    opacity: 0.5;
+    border: 1px solid #000000;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    margin: 2px 0;
+    border-radius: 0;
+    transition: 0.1s all ease-in;}
+
+.repcontrol_add:hover, .repcontrol_edit:hover{ opacity: 1;}
+    
