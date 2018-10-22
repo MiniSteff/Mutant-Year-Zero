@@ -1,6 +1,6 @@
-var table1                  = "<td style='border: 1px solid #000000; padding: 3px;'>";
-var table1_colspan          = "<td style='border: 1px solid #000000; padding: 3px' colspan='2'>";
-var table1_colspan_reussite = "<td style='border: 1px solid #000000; padding: 3px; height: 50px; font-size: 50px; font-weight: bold; text-align: center' colspan='2'>";
+var table1                  = "<td style='border: 1px solid #000000; color:#000000; padding: 3px;'>";
+var table1_colspan          = "<td style='border: 1px solid #000000; color:#000000; padding: 3px' colspan='2'>";
+var table1_colspan_reussite = "<td style='border: 1px solid #000000; color:#000000; padding: 3px; height: 50px; font-size: 50px; font-weight: bold; text-align: center' colspan='2'>";
 
 on("chat:message", function(msg) {
 if(msg.type == "api" && msg.content.indexOf("!myzPousse") !== -1) {
@@ -13,6 +13,7 @@ if(msg.type == "api" && msg.content.indexOf("!myzPousse") !== -1) {
         var valeurEquipement            = myzJet[6];
         var valeurEchec                 = Number(myzJet[7]);
         var valeurEchecEquipement       = Number(myzJet[8]);
+        var valeurReussiteJet           = Number(myzJet[9]);
         
         var malusAttribut       = 0;
         // Je détermine la valeur du jet sous la forme Xd6
@@ -39,9 +40,9 @@ if(msg.type == "api" && msg.content.indexOf("!myzPousse") !== -1) {
                 {
                     var valeurTableauJet_competence = jet_competence[x];
                     
-                    if(jet_competence[x] === 1){ valeurTableauJet_competence = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_competence[x]+"</span> "}
-                    else if(jet_competence[x] === 6){ valeurTableauJet_competence = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_competence[x]+"</span> "}
-                    else{ valeurTableauJet_competence = " <span style='vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_competence[x]+"</span> " }
+                    if(jet_competence[x] === 1){ valeurTableauJet_competence = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_competence[x]+"</span> "}
+                    else if(jet_competence[x] === 6){ valeurTableauJet_competence = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_competence[x]+"</span> "}
+                    else{ valeurTableauJet_competence = " <span style='color:#000000; vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_competence[x]+"</span> " }
                     
                     tableauJet_competence += valeurTableauJet_competence;
                 }
@@ -66,9 +67,9 @@ if(msg.type == "api" && msg.content.indexOf("!myzPousse") !== -1) {
                 {
                     var valeurTableauJet_attribut = jet_attribut[x];
                     
-                    if(jet_attribut[x] === 1){ valeurTableauJet_attribut = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_attribut[x]+"</span> "}
-                    else if(jet_attribut[x] === 6){ valeurTableauJet_attribut = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_attribut[x]+"</span> "}
-                    else{ valeurTableauJet_attribut = " <span style='vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_attribut[x]+"</span> " }
+                    if(jet_attribut[x] === 1){ valeurTableauJet_attribut = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_attribut[x]+"</span> "}
+                    else if(jet_attribut[x] === 6){ valeurTableauJet_attribut = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_attribut[x]+"</span> "}
+                    else{ valeurTableauJet_attribut = " <span style='color:#000000; vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_attribut[x]+"</span> " }
                     
                     tableauJet_attribut += valeurTableauJet_attribut;
                 }
@@ -93,9 +94,9 @@ if(msg.type == "api" && msg.content.indexOf("!myzPousse") !== -1) {
                 {
                     var valeurTableauJet_equipement = jet_equipement[x];
                     
-                    if(jet_equipement[x] === 1){ valeurTableauJet_equipement = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_equipement[x]+"</span> "}
-                    else if(jet_equipement[x] === 6){ valeurTableauJet_equipement = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_equipement[x]+"</span> "}
-                    else{ valeurTableauJet_equipement = " <span style='vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_equipement[x]+"</span> " }
+                    if(jet_equipement[x] === 1){ valeurTableauJet_equipement = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_equipement[x]+"</span> "}
+                    else if(jet_equipement[x] === 6){ valeurTableauJet_equipement = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_equipement[x]+"</span> "}
+                    else{ valeurTableauJet_equipement = " <span style='color:#000000; vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_equipement[x]+"</span> " }
                     
                     tableauJet_equipement += valeurTableauJet_equipement;
                 }
@@ -104,6 +105,7 @@ if(msg.type == "api" && msg.content.indexOf("!myzPousse") !== -1) {
         var jetPousse = (Number(valeurCompetence)+Number(valeurAttribut))-(Number(reussite_attribut)+Number(reussite_competence)+Number(echec_attribut)+Number(echec_competence));
         echec_attribut += valeurEchec;
         echec_equipement += valeurEchecEquipement;
+        jetReussi += valeurReussiteJet;
         
         if(echec_attribut === 0) { echecHTML = ""}
         else                     { echecHTML = "<tr>"+table1_colspan+nomAttribut+" réduite de "+echec_attribut+"</td>"+"</td></tr>"  }
@@ -112,25 +114,25 @@ if(msg.type == "api" && msg.content.indexOf("!myzPousse") !== -1) {
         else                     { echecEquipementHTML = "<tr>"+table1_colspan+"Bonus d'équipement réduit de "+echec_equipement+"</td></tr>"  }
         
         // J'envoie le message dans le tchat
-        sendChat(msg.who,   "<table style='width: 100%; background: #e9913b;; border: 2px solid #000000'><tr>"
+        sendChat(msg.who,   "<table style='width: 100%; background: #e9913b;; border: 2px solid #000000; color:#000000'><tr>"
                                 +"<td class='sheet-red' colspan='2' style='height: 25px; vertical-align: middler; text-align: center; font-weight: bold; color: #ffffff; background: url(https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/header_table_4.png) top left'>"
                                 +"Test de "+nomJet
                                 +"</td></tr>"
                                 +table1_colspan_reussite+jetReussi
                                 +"</td></tr>"
-                                +"<tr>"+table1
+                                +"<tr  style='color:#000000'>"+table1
                                 +"Jet</td>"
                                 +"<td>"+valeurJet
                                 +"</td></tr>"
-                                +"<tr>"+table1
+                                +"<tr  style='color:#000000'>"+table1
                                 +"Attribut</td>"
                                 +table1+tableauJet_attribut
                                 +"</td></tr>"
-                                +"<tr>"+table1
+                                +"<tr  style='color:#000000'>"+table1
                                 +"Compétence</td>"
                                 +table1+tableauJet_competence
                                 +"</td></tr>"
-                                +"<tr>"+table1
+                                +"<tr  style='color:#000000'>"+table1
                                 +"Équipements </td>"
                                 +table1+tableauJet_equipement
                                 +"</td></tr>"
