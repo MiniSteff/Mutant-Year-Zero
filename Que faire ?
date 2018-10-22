@@ -1,0 +1,24 @@
+Ca demande quelques petit copier/coller en plus
+
+Pour le HTML/CSS
+1° Paramètres
+2° Paramètres de jeu
+3° Character Sheet Template > Custom
+4° Copier / Coller HTML dans HTML Layout
+5° Copier / Coller CSS dans CSS Styling
+
+Pour les API
+1° Paramètres
+2° Script API
+3° New Script, Copier/Coller API_Jet et donnez lui un nom (au choix)
+4° Save Script
+5° New Script, Copier/Coller API_Pousse et donnez lui un nom (au choix)
+6° Save Script
+7° New Script, Copier/Coller API_Custom et donnez lui un nom (au choix)
+8° Save Script
+
+Et c'est bon !
+
+API_Jet = L'API qui gère le jet de dé
+API_Pousse = L'API qui gère le fait de pousser un jet de dé
+API_Custom = L'API qui gère le jet de dé custom
