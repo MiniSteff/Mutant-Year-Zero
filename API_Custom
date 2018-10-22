@@ -1,0 +1,148 @@
+var table1                  = "<td style='border: 1px solid #000000; padding: 3px;'>";
+var table1_colspan          = "<td style='border: 1px solid #000000; padding: 3px' colspan='2'>";
+var table1_colspan_reussite = "<td style='border: 1px solid #000000; padding: 3px; height: 50px; font-size: 50px; font-weight: bold; text-align: center' colspan='2'>";
+
+on("chat:message", function(msg) {
+if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
+        var myzJetCustom        = msg.content.split("...");
+        var nomJoueur           = myzJetCustom[1];
+        var nomJet              = myzJetCustom[2];
+        var nomAttribut         = "..."
+        var customAttribut1     = Number(myzJetCustom[4]);
+        var customAttribut2     = Number(myzJetCustom[4])+4;
+        var valeurAttribut      = Number(myzJetCustom[customAttribut1])-Number(myzJetCustom[customAttribut2]);
+        var valeurCompetence    = myzJetCustom[5];
+        var valeurEquipement    = myzJetCustom[6];
+        
+        if(Number(myzJetCustom[3]) === 7)   { nomAttribut  = "vigueur";     }
+        if(Number(myzJetCustom[3]) === 8)   { nomAttribut  = "agilité";     }
+        if(Number(myzJetCustom[3]) === 9)   { nomAttribut  = "intellect";   }
+        if(Number(myzJetCustom[3]) === 10)  { nomAttribut  = "empathie";    }
+        
+        
+        var malusAttribut       = 0;
+        // Je détermine la valeur du jet sous la forme Xd6
+        var valeurJet = Number(valeurCompetence)+Number(valeurAttribut)+Number(valeurEquipement);
+        valeurJet += 'd6';
+        
+        // On jette les dés pour compétence et on range les valeurs dans un tableau que l'on trie
+        var jet_competence          = [];
+        var d6_competence           = 0;
+        var tableauJet_competence   = "";
+        var reussite_competence     = 0;
+        var echec_competence        = 0;
+        
+            for (var x=0; x<valeurCompetence; x++) {
+                d6_competence = Math.floor(Math.random() * (6 - 1 +1)) + 1;
+                jet_competence.push(d6_competence);
+                
+                if(d6_competence === 6){ reussite_competence +=1}
+                if(d6_competence === 1){ echec_competence +=1}
+            }
+            
+            jet_competence.sort();
+            for(var x= 0; x < jet_competence.length; x++)
+                {
+                    var valeurTableauJet_competence = jet_competence[x];
+                    
+                    if(jet_competence[x] === 1){ valeurTableauJet_competence = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_competence[x]+"</span> "}
+                    else if(jet_competence[x] === 6){ valeurTableauJet_competence = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_competence[x]+"</span> "}
+                    else{ valeurTableauJet_competence = " <span style='vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_competence[x]+"</span> " }
+                    
+                    tableauJet_competence += valeurTableauJet_competence;
+                }
+        
+        // On jette les dés pour attribut et on range les valeurs dans un tableau que l'on trie
+        var jet_attribut = [];
+        var d6_attribut = 0;
+        var tableauJet_attribut = "";
+        var reussite_attribut     = 0;
+        var echec_attribut        = 0;
+        
+            for (var x=0; x<valeurAttribut; x++) {
+                d6_attribut = Math.floor(Math.random() * (6 - 1 +1)) + 1;
+                jet_attribut.push(d6_attribut);
+                
+                if(d6_attribut === 6){ reussite_attribut +=1}
+                if(d6_attribut === 1){ echec_attribut += 1;}
+            }
+            
+            jet_attribut.sort();
+            for(var x= 0; x < jet_attribut.length; x++)
+                {
+                    var valeurTableauJet_attribut = jet_attribut[x];
+                    
+                    if(jet_attribut[x] === 1){ valeurTableauJet_attribut = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_attribut[x]+"</span> "}
+                    else if(jet_attribut[x] === 6){ valeurTableauJet_attribut = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_attribut[x]+"</span> "}
+                    else{ valeurTableauJet_attribut = " <span style='vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_attribut[x]+"</span> " }
+                    
+                    tableauJet_attribut += valeurTableauJet_attribut;
+                }
+
+        // On jette les dés pour équipement et on range les valeurs dans un tableau que l'on trie
+        var jet_equipement          = [];
+        var d6_equipement           = 0;
+        var tableauJet_equipement   = "";
+        var reussite_equipement     = 0;
+        var echec_equipement        = 0;
+        
+            for (var x=0; x<valeurEquipement; x++) {
+                d6_equipement = Math.floor(Math.random() * (6 - 1 +1)) + 1;
+                jet_equipement.push(d6_equipement);
+                
+                if(d6_equipement === 6){ reussite_equipement +=1}
+                if(d6_equipement === 1){ echec_equipement += 1;}
+                }
+            
+            jet_equipement.sort();
+            for(var x= 0; x < jet_equipement.length; x++)
+                {
+                    var valeurTableauJet_equipement = jet_equipement[x];
+                    
+                    if(jet_equipement[x] === 1){ valeurTableauJet_equipement = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_equipement[x]+"</span> "}
+                    else if(jet_equipement[x] === 6){ valeurTableauJet_equipement = " <span style='font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_equipement[x]+"</span> "}
+                    else{ valeurTableauJet_equipement = " <span style='vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_equipement[x]+"</span> " }
+                    
+                    tableauJet_equipement += valeurTableauJet_equipement;
+                }
+        
+        var jetReussi = Number(reussite_attribut)+Number(reussite_competence)+Number(reussite_equipement)
+        var jetPousse = (Number(valeurCompetence)+Number(valeurAttribut))-(Number(reussite_attribut)+Number(reussite_competence)+Number(echec_attribut)+Number(echec_competence));
+        
+                
+        valeurAttribut -= (reussite_attribut+echec_attribut);
+        valeurCompetence -= (reussite_competence+echec_competence);
+        
+        // J'envoie le message dans le tchat
+        sendChat(msg.who,   "<table style='width: 100%; background: #e9913b;; border: 2px solid #000000'><tr>"
+                                +"<td class='sheet-red' colspan='2' style='height: 25px; vertical-align: middler; text-align: center; font-weight: bold; color: #ffffff; background: url(https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/header_table_4.png) top left'>"
+                                +"Test de "+nomJet
+                                +"</td></tr>"
+                                +table1_colspan_reussite+jetReussi
+                                +"</td></tr>"
+                                +"<tr>"+table1
+                                +"Jet</td>"
+                                +"<td>"+valeurJet
+                                +"</td></tr>"
+                                +"<tr>"+table1
+                                +"Attribut</td>"
+                                +table1+tableauJet_attribut
+                                +"</td></tr>"
+                                +"<tr>"+table1
+                                +"Compétence</td>"
+                                +table1+tableauJet_competence
+                                +"</td></tr>"
+                                +"<tr>"+table1
+                                +"Équipements </td>"
+                                +table1+tableauJet_equipement
+                                +"</td></tr>"
+                                +"<tr>"+table1_colspan
+                                +"Ton jet sera de "+jetPousse+"d6 si tu le pousse</td>"
+                                +"</td></tr>"
+                            +"</tr></table>"
+                            +"<a href='!myzPousse..."+nomJoueur+"..."+nomJet+"..."+nomAttribut+"..."+valeurAttribut+"..."+valeurCompetence+"...?{Équipements ? | 0}' style='background: transparent; border: 0; color: #000000'>Pousser le jet</a>");
+}
+
+
+});
+
