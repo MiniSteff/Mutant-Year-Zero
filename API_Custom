@@ -13,7 +13,10 @@ if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
         var valeurAttribut      = Number(myzJetCustom[customAttribut1])-Number(myzJetCustom[customAttribut2]);
         var valeurCompetence    = myzJetCustom[5];
         var valeurEquipement    = myzJetCustom[6];
+        var valeurBonus         = Number(myzJetCustom[5])+Number(myzJetCustom[15]);
         
+        if( valeurBonus <= 0){ valeurBonus = 0;}
+         
         if(Number(myzJetCustom[3]) === 7)   { nomAttribut  = "vigueur";     }
         if(Number(myzJetCustom[3]) === 8)   { nomAttribut  = "agilité";     }
         if(Number(myzJetCustom[3]) === 9)   { nomAttribut  = "intellect";   }
@@ -22,7 +25,7 @@ if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
         
         var malusAttribut       = 0;
         // Je détermine la valeur du jet sous la forme Xd6
-        var valeurJet = Number(valeurCompetence)+Number(valeurAttribut)+Number(valeurEquipement);
+        var valeurJet = Number(valeurBonus)+Number(valeurAttribut)+Number(valeurEquipement);
         valeurJet += 'd6';
         
         // On jette les dés pour compétence et on range les valeurs dans un tableau que l'on trie
@@ -32,7 +35,7 @@ if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
         var reussite_competence     = 0;
         var echec_competence        = 0;
         
-            for (var x=0; x<valeurCompetence; x++) {
+            for (var x=0; x<valeurBonus; x++) {
                 d6_competence = Math.floor(Math.random() * (6 - 1 +1)) + 1;
                 jet_competence.push(d6_competence);
                 
@@ -114,7 +117,7 @@ if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
         valeurCompetence -= (reussite_competence+echec_competence);
         
          if(echec_attribut === 0) { echecHTM = ""}
-        else                     { echecHTM = "<tr>"+table1_colspan+"Tu vas perdre "+echec_attribut+" point(s) de "+nomAttribut+" si tu pousses ton jet </td></tr>"    }
+        else                      { echecHTM = "<tr>"+table1_colspan+"Tu vas perdre "+echec_attribut+" point(s) de "+nomAttribut+" si tu pousses ton jet </td></tr>"    }
         
         if(echec_equipement === 0)  { equipementHTM = ""}
         else                        { equipementHTM = "<tr>"+table1_colspan+"Si tu pousse ton jet, le bonus d'équipement sera réduit de "+echec_equipement+"</td></tr>"    }
@@ -144,9 +147,6 @@ if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
                                 +"</td></tr>"
                                 +"<tr  style='color:#000000'>"+table1_colspan
                                 +"Ton jet sera de "+jetPousse+"d6 si tu le pousse</td>"
-                                +"</td></tr>"
-                                +"<tr  style='color:#000000'>"+table1_colspan
-                                +"Tu vas perdre "+echec_attribut+" point(s) de "+nomAttribut+" si tu pousses ton jet</td>"
                                 +"</td></tr>"
                                 +echecHTM+equipementHTM
                             +"</table>"
