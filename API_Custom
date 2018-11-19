@@ -49,7 +49,7 @@ if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
                     var valeurTableauJet_competence = jet_competence[x];
                     
                     if(jet_competence[x] === 1){ valeurTableauJet_competence = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_competence[x]+"</span> "}
-                    else if(jet_competence[x] === 6){ valeurTableauJet_competence = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_competence[x]+"</span> "}
+                    else if(jet_competence[x] === 6){ valeurTableauJet_competence = " <img src='https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/radioactive.png' style='display: inline-block: height: 15px; width: 15px; margin: 0 3px;'>"}
                     else{ valeurTableauJet_competence = " <span style='color:#000000; vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_competence[x]+"</span> " }
                     
                     tableauJet_competence += valeurTableauJet_competence;
@@ -75,8 +75,8 @@ if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
                 {
                     var valeurTableauJet_attribut = jet_attribut[x];
                     
-                    if(jet_attribut[x] === 1){ valeurTableauJet_attribut = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_attribut[x]+"</span> "}
-                    else if(jet_attribut[x] === 6){ valeurTableauJet_attribut = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_attribut[x]+"</span> "}
+                    if(jet_attribut[x] === 1){ valeurTableauJet_attribut = "<img src='https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/biohazard.png' style='display: inline-block: height: 18px; width: 18px; margin: 0 3px;'>"}
+                    else if(jet_attribut[x] === 6){ valeurTableauJet_attribut = "<img src='https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/radioactive.png' style='display: inline-block: height: 15px; width: 15px; margin: 0 3px;'>"}
                     else{ valeurTableauJet_attribut = " <span style='color:#000000; vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_attribut[x]+"</span> " }
                     
                     tableauJet_attribut += valeurTableauJet_attribut;
@@ -102,8 +102,8 @@ if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
                 {
                     var valeurTableauJet_equipement = jet_equipement[x];
                     
-                    if(jet_equipement[x] === 1){ valeurTableauJet_equipement = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block;width: 20px; height: 20px;'>"+jet_equipement[x]+"</span> "}
-                    else if(jet_equipement[x] === 6){ valeurTableauJet_equipement = " <span style='color:#000000; font-size: 18px; font-weight: bold; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_equipement[x]+"</span> "}
+                    if(jet_equipement[x] === 1){ valeurTableauJet_equipement = "<img src='https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/DiceExplode.png' style='display: inline-block: height: 18px; width: 18px; margin: 0 3px;'>"}
+                    else if(jet_equipement[x] === 6){ valeurTableauJet_equipement = "<img src='https://raw.githubusercontent.com/MiniSteff/Mutant-Year-Zero/master/radioactive.png' style='display: inline-block: height: 15px; width: 15px; margin: 0 3px;'>"}
                     else{ valeurTableauJet_equipement = " <span style='color:#000000; vertical-align: middle; text-align:center; display:inline-block; width: 20px; height: 20px'>"+jet_equipement[x]+"</span> " }
                     
                     tableauJet_equipement += valeurTableauJet_equipement;
@@ -155,3 +155,4 @@ if(msg.type == "api" && msg.content.indexOf("!myzCustom") !== -1) {
 
 
 });
+
