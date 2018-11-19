@@ -11,13 +11,13 @@ if(msg.type == "api" && msg.content.indexOf("!myzJet") !== -1) {
         var valeurAttribut      = Number(myzJet[4])-Number(myzJet[7]);
         var valeurCompetence    = myzJet[5];
         var valeurEquipement    = myzJet[6];
+        var valeurBonus         = Number(myzJet[5])+Number(myzJet[8]);
         
-        
-        
+        if( valeurBonus <= 0){ valeurBonus = 0;}
         
         var malusAttribut       = 0;
         // Je détermine la valeur du jet sous la forme Xd6
-        var valeurJet = Number(valeurCompetence)+Number(valeurAttribut)+Number(valeurEquipement);
+        var valeurJet = Number(valeurBonus)+Number(valeurAttribut)+Number(valeurEquipement);
         valeurJet += 'd6';
         
         // On jette les dés pour compétence et on range les valeurs dans un tableau que l'on trie
@@ -26,8 +26,8 @@ if(msg.type == "api" && msg.content.indexOf("!myzJet") !== -1) {
         var tableauJet_competence   = "";
         var reussite_competence     = 0;
         var echec_competence        = 0;
-        
-            for (var x=0; x<valeurCompetence; x++) {
+
+            for (var x=0; x<valeurBonus; x++) {
                 d6_competence = Math.floor(Math.random() * (6 - 1 +1)) + 1;
                 jet_competence.push(d6_competence);
                 
@@ -144,7 +144,7 @@ if(msg.type == "api" && msg.content.indexOf("!myzJet") !== -1) {
                                 +"</td></tr>"
                                 +echecHTM+equipementHTM
                             +"</tr></table>"
-                            +"<a href='!myzPousse..."+nomJoueur+"..."+nomJet+"..."+nomAttribut+"..."+valeurAttribut+"..."+valeurCompetence+"...?{Équipements ? | 0}..."+echec_attribut+"..."+echec_equipement+"..."+jetReussi+"' style='background: transparent; border: 0; color: #000000'>Pousser le jet</a>");
+                            +"<a href='!myzPousse..."+nomJoueur+"..."+nomJet+"..."+nomAttribut+"..."+valeurAttribut+"..."+valeurCompetence+"...?{Équipements ? | 0}..."+echec_attribut+"..."+echec_equipement+"..."+jetReussi+"...?{Bonus | 0}"+"' style='background: transparent; border: 0; color: #000000'>Pousser le jet</a>");
 }
 
 
